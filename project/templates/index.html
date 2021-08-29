@@ -1,15 +1,46 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Index{% endblock %}
 
 {% block page_content %}
-<h1>Cadastro de Cliente e produto</h1>
-<h5>Selecione uma opção:</h5>
-<div class="menu">
-    <ul class="list-group">
-        <li class="list-group-item"><a href="/consumer">Cadastrar Cliente</a></li>
-        <li class="list-group-item"><a href="/product">Cadastrar Produto</a></li>
-    </ul>
-</div>
+<body>
+    <header>
+        <div class="container">
+            <h2 class="Logo">Delivery Jogos de Tabuleiro</h2>
+        </div>
+    </header>
+    <!-- Na pagina Principal Colocar um Jogo em destaque
+    <main>
+        <div class="jogo-principal">
+            <div class="container">
+                <h3 class="titulo">Jogo Principal</h3>
+                "Foto do jogo Principal" 
+                <p class="descricao">Descrição do jogo principal</p>
+                <div class="botoes">
+                    <button role="button" class="botao">
+                        <a href="/">Ver mais</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    -->
+
+    <div class="homeshow-lista-jogos">
+        {% for p in products %}
+        <div class="item">
+            <ul>
+                <li>{{p.name}}</li>
+                <li>Preço: R${{p.price}}</li>
+                <li>Descrição: {{p.description}}</li>
+                <div class="botoes">
+                    <button role="button" class="botao">
+                        <a href="/product/{{p.id}}">Ver mais</a>
+                    </button>
+                </div>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
 {% endblock %}
-
-

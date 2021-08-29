@@ -95,3 +95,15 @@ def delete_product(id):
     db.session.delete(product)
     db.session.commit()
     return redirect(url_for('form.product'))
+
+
+@form.route('/' , methods=["GET"])
+def home_get_product():
+    products = Product.query.all()
+    print(product) 
+    return render_template('index.html', products=products)
+
+@form.route('/product/<int:id>')
+def get_produto_id(id):
+    product = Product.query.get(id)
+    return render_template('produto_id.html', product=product)
