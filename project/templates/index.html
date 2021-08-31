@@ -8,7 +8,7 @@
             <h2 class="Logo">Delivery Jogos de Tabuleiro</h2>
         </div>
     </header>
-    <!-- Na pagina Principal Colocar um Jogo em destaque
+    
     <main>
         <div class="jogo-principal">
             <div class="container">
@@ -23,24 +23,34 @@
             </div>
         </div>
     </main>
-    -->
+    
+
 
     <div class="homeshow-lista-jogos">
-        {% for p in products %}
-        <div class="item">
-            <ul>
-                <li>{{p.name}}</li>
-                <li>Preço: R${{p.price}}</li>
-                <li>Descrição: {{p.description}}</li>
-                <div class="botoes">
-                    <button role="button" class="botao">
-                        <a href="/product/{{p.id}}">Ver mais</a>
-                    </button>
-                </div>
-            </ul>
+        <div class="owl-carousel owl-theme">
+            {% for p in products %}
+            <div class="item">
+                <ul>
+                    <li>{{p.name}}</li>
+                    <li>Preço: R${{p.price}}</li>
+                    <li>Descrição: {{p.description}}</li>
+                    <div class="botoes">
+                        <button role="button" class="botao">
+                            <a href="/product/{{p.id}}">Ver mais</a>
+                        </button>
+                    </div>
+                </ul>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+
+
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/setup.js') }}"></script>
+
 
 </body>
 {% endblock %}
