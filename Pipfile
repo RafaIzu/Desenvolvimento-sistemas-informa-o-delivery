@@ -9,6 +9,10 @@ flask = "*"
 flask-bootstrap = "*"
 wtforms = "*"
 flask-wtf = "*"
+marshmallow = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+flask-migrate = "*"
 
 [dev-packages]
 

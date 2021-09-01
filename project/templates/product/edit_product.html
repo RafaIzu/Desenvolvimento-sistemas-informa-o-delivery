@@ -5,19 +5,22 @@
 <form action="/edit_product/{{ product.id }}" class="container" method="post">
     <div class="row">
         <div class="col-md-6">
-            <input type="text" name="name", id="name" placeholder="Nome" class="form-control" value="{{ product.name }}">
+            <input type="text" name="nome", id="nome" placeholder="Nome" class="form-control">
         </div>
         <div class="col-md-6">
-            <input type="text" name="price" id="price" placeholder="Preço" class="form-control" value="{{ product.price }}" >
+            <input type="text" name="description" id="description" placeholder="Descrição" class="form-control">
         </div>
         <div class="col-md-6">
-            <input type="text" name="description" id="description" placeholder="Descrição" class="form-control" value="{{ product.description }}" >
+            <input type="text" name="editora" id="editora" placeholder="Editora" class="form-control">
         </div>
         <div class="col-md-6">
-            <input type="text" name="players" id="players" placeholder="Nº  jogadores" class="form-control" value="{{ product.players }}" >
+            <input type="text" name="preco" id="preco" placeholder="Preço" class="form-control">
         </div>
         <div class="col-md-6">
-            <input type="text" name="age" id="age" placeholder="Faixa etária" class="form-control" value="{{ product.age }}" >
+            <input type="text" name="faixa_etaria" id="faixa_etaria" placeholder="Faixa etaria" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="numero_de_jogadores" id="numero_de_jogadores" placeholder="Nº  jogadores" class="form-control">
         </div>
     </div>
     <br>
@@ -26,6 +29,6 @@
     </div>
 </form>
 <div class="return">
-    <a href="/product">Voltar</a>
+    <a href="/produtos">Voltar</a>
 </div>
 {% endblock %}

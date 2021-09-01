@@ -28,15 +28,14 @@
 
     <div class="homeshow-lista-jogos">
         <div class="owl-carousel owl-theme">
-            {% for p in products %}
+            {% for p in produtos %}
             <div class="item">
                 <ul>
-                    <li>{{p.name}}</li>
-                    <li>Preço: R${{p.price}}</li>
-                    <li>Descrição: {{p.description}}</li>
+                    <li>{{p["nome"]}}</li>
+                    <li>Preço: R${{p["preco"]}}</li>
                     <div class="botoes">
                         <button role="button" class="botao">
-                            <a href="/product/{{p.id}}">Ver mais</a>
+                            <a href="/product/{{p["id"] | int(p["id"])}}">Ver mais</a>
                         </button>
                     </div>
                 </ul>

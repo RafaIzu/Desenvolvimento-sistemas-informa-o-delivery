@@ -4,11 +4,12 @@
 {% block page_content %}
 <div class="Produto_Id">
     <ul>
-        <li>Nome do Jogo: {{product.name}}</li>
-        <li>Preço: R${{product.price}}</li>
+        <li>Nome do Jogo: {{product.nome}}</li>
         <li>Descrição: {{product.description}}</li>
-        <li>Número de Jogadores: {{product.players}}</li>
-        <li>Faixa Etária: {{product.age}}</li>
+        <li>Editora: {{product.editora}}</li>
+        <li>Preço: R${{product.preco | replace(".", ",")}}</li>
+        <li>Faixa Etária: {{product.faixa_etaria}}</li>
+        <li>Número de Jogadores: {{product.numero_de_jogadores}}</li>
     </ul>
 </div>
 <div class="return">
