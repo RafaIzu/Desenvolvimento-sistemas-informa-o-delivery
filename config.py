@@ -11,12 +11,12 @@ class Config:
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in\
         ['true', 'on', '1']
 
-    # MAIL_USERNAME = 'appleizukawa'
+    # MAIL_USERNAME = 'Ember'
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
     DELIVERY_MAIL_SUBJECT_PREFIX = '[Delivery]'
-    DELIVERY_MAIL_SENDER = 'Delivery Admin <appleizukawa@gmail.com>'
+    DELIVERY_MAIL_SENDER = 'Delivery Admin <embermarquez14@gmail.com>'
     DELIVERY_ADMIN = os.environ.get('DELIVERY_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

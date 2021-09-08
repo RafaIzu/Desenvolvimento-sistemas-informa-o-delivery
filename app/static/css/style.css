@@ -106,4 +106,35 @@
     margin-bottom: 10px;
 }
 
+.jogo-principal{
+    font-size: 16px;
+    height: 400px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.jogo-principal .descricao{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.jogo-principal .titulo{
+    margin-top: 15%;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.container{
+    margin-left: 20px;
+}
+
+.jogo-principal .container{
+    width: 70%;
+}
+
+.item{
+    float:left;
+}
