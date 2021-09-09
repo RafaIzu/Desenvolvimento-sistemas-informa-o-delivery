@@ -120,10 +120,15 @@
     margin-top: 10px;
     margin-bottom: 40px;
     text-align: center;
+    margin: 1px;
+}
+
+.jogo-principal .sub-titulo{
+    text-align: center;
 }
 
 .jogo-principal .titulo{
-    margin-top: 10%;
+    margin-top: 1%;
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: auto;
@@ -159,5 +164,15 @@
 }
 
 .homeshow-lista-jogos {
-    margin-top:150px;
+    margin-top:100px;
+}
+
+.homeshow-lista-jogos .titulo{
+    margin-top:20px;
+    margin-left: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.homeshow-lista-jogos .owl-carousel{
+    margin-top:30px;
 }
