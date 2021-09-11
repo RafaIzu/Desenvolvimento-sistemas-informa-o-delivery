@@ -2,28 +2,56 @@
 {% block title %}Home{% endblock %}
 
 {% block page_content %}
-<h1>Cadastro de Cliente e produto</h1>
-<h1>Olá,
-    {% if current_user.is_authenticated %}
-        {{current_user.username}}
-    {% else %}
-        Estranho
-    {% endif %}!</h1>
-{% if not known %}
-<p>Bem-vindo!</p>
-{% else %}
-<p>Que bom ve-lo de novo!</p>
-{% endif %}
-</div>
-{% if current_user.is_authenticated %}
-<h5 class="selectOption">Selecione uma opção:</h5>
-<div class="menu">
-    <ul class="list-group">
-        <li class="list-group-item"><a href="/consumer">Cadastrar Cliente</a></li>
-        <li class="list-group-item"><a href="/product">Cadastrar Produto</a></li>
-    </ul>
-</div>
-{% endif %}
+<body>
+    <header>
+        <div class="container">
+            <h2 class="Logo">Delivery Jogos de Tabuleiro</h2>
+        </div>
+    </header>
+    
+    <main>
+        <div class="jogo-principal">
+            <div class="container">
+                <div class="sub-titulo"><h2>Jogo Em Destaque</h2></div>
+                <h3 class="titulo">{{products[0].name}}</h3>
+                <div class="img_home">
+                    <img src="{{ url_for('static', filename='img/7won.png') }}" alt="">
+                </div>
+                <p class="descricao">{{products[0].description}}</p>
+                <div class="botoes">
+                    <button role="button" class="botao">
+                        <a href="/product/{{products[0].id}}">Ver mais</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="homeshow-lista-jogos">
+        <h2 class="titulo">Todos os Jogos</h2>
+        <div class="owl-carousel owl-theme">
+            {% for p in products %}
+            <div class="item">
+                <ul>
+                    <li>{{p.name}}</li>
+                    <li>Preço: R${{p.price}}</li>
+                    <div class="botoes">
+                        <button role="button" class="botao">
+                            <a href="/product/{{p.id}}">Ver mais</a>
+                        </button>
+                    </div>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/setup.js') }}"></script>
+
 {% endblock %}
-
-

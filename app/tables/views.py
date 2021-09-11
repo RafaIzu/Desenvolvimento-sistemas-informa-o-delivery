@@ -86,3 +86,13 @@ def delete_product(id):
     db.session.delete(product)
     db.session.commit()
     return redirect(url_for('tables.product'))
+
+@tables.route('/product/<int:id>')
+def get_produto_id(id):
+    product = Product.query.get(id)
+    return render_template('product/product_id.html', product=product)
+
+@tables.route('/')
+def index():
+    products = Product.query.all()
+    return render_template('index.html', products=products)

@@ -70,7 +70,7 @@ def login():
                 print('>>>banana<<<')
                 print("is_authenticated: ", current_user.is_authenticated)
                 print("is_confirmed: ", current_user.confirmed)
-                next = url_for('main.index')
+                next = url_for('tables.index')
             return redirect(next)
         flash('Invalid username or password. ')
     return render_template('auth/login.html', form=form)
@@ -81,7 +81,7 @@ def login():
 def logout():
     logout_user()
     flash('Você fez logout.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('tables.index'))
 
 
 @auth.route('/register', methods=['GET', 'POST'])
@@ -148,14 +148,14 @@ def confirm(token):
     print('>>>entrou na sala!')
     if current_user.confirmed:
         print('>>>Entrou <<<')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('tables.index'))
     if current_user.confirm(token):
         db.session.commit()
         print('>>>Também entrou')
         flash('Você confirmou sua conta. Obrigado!')
     else:
         flash('O link de confirmação expirou.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('tables.index'))
 
 
 @auth.before_app_request
@@ -171,7 +171,7 @@ def before_request():
 @auth.route('/unconfirmed')
 def unconfirmed():
     if current_user.is_anonymous or current_user.confirmed:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('tables.index'))
     return render_template('auth/unconfirmed.html')
 
 
@@ -183,7 +183,7 @@ def resend_confirmation():
                'auth/email/confirm', user=current_user,
                token=token)
     flash('Um novo e-mail de confirmação foi enviada para a sua caixa de e-mails.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('tables.index'))
 
 @auth.route('/change_password', methods=['GET', 'POST'])
 @login_required
@@ -195,7 +195,7 @@ def change_password():
             db.session.add(current_user)
             db.session.commit()
             flash('Sua senha foi trocada.')
-            return redirect(url_for('main.index'))
+            return redirect(url_for('tables.index'))
         else:
             flash('Senha inválida')
     return render_template("auth/change_password.html", form=form)
@@ -203,7 +203,7 @@ def change_password():
 @auth.route('/reset', methods=['GET', 'POST'])
 def password_reset_request():
     if not current_user.is_anonymous:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('tables.index'))
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
         consumer = Consumer.query.filter_by(email=form.email.data.lower()).first()
@@ -219,7 +219,7 @@ def password_reset_request():
 @auth.route('/reset/<token>', methods=['GET', 'POST'])
 def password_reset(token):
     if not current_user.is_anonymous:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('tables.index'))
     form =  PasswordResetForm()
     if form.validate_on_submit():
         if Consumer.reset_password(token, form.password.data):
@@ -227,7 +227,7 @@ def password_reset(token):
             flash('Sua senha foi renovada!')
             return redirect(url_for('auth.login'))
         else:
-            return redirect(url_for('main.index'))
+            return redirect(url_for('tables.index'))
     return render_template('auth/reset_password.html', form=form)
 
 @auth.route('/change_email', methods=['GET', 'POST'])
@@ -243,7 +243,7 @@ def change_email_request():
                        token=token)
             flash('Um email com as instruções para confirmar seu novo email'
                   'Foi enviado para você.')
-            return redirect(url_for('main.index'))
+            return redirect(url_for('tables.index'))
         else:
             flash('Email ou senha inválida.')
     return render_template('auth/change_email.html', form=form)
@@ -256,4 +256,4 @@ def change_email(token):
         flash('Seu endereço de email foi atualizado!')
     else:
         flash('Requerimento invalido.')
-    return redirect(url_for('main.index'))
+    return redirect(url_for('tables.index'))
